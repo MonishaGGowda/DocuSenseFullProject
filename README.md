@@ -16,15 +16,15 @@ To reduce cognitive load, the interface is divided into clear, manageable sectio
 
 5. Connections Page: The Connections page allows users to view all the annotations they've created and trace them back to the source document. Users can connect annotations by filtering text and relevancy (high or low). Each annotation contains a link that directs back to the original document.
 
-# Django Project Setup Instructions 
-## Prerequisites - Python 3.x installed - pip installed - Virtualenv installed (`pip install virtualenv`) 
-## Setup 1. Clone the repository or extract the ZIP file. ```bash git clone <repository_url> cd project_folder
-## Create and activate a virtual environment: python3 -m venv venv
-## venv/bin/activate  # On Windows: venv\Scripts\activate
-## Install dependencies: pip install -r requirements.txt
-## python manage.py migrate
-## python manage.py runserver
-## Access the project at http://127.0.0.1:8000.
+# Django Project Setup Instructions </br>
+## Prerequisites - Python 3.x installed - pip installed - Virtualenv installed (`pip install virtualenv`) </br>
+## Setup 1. Clone the repository or extract the ZIP file. ```bash git clone <repository_url> cd project_folder</br>
+## Create and activate a virtual environment: python3 -m venv venv</br>
+## venv/bin/activate  # On Windows: venv\Scripts\activate</br>
+## Install dependencies: pip install -r requirements.txt</br>
+## python manage.py migrate</br>
+## python manage.py runserver</br>
+## Access the project at http://127.0.0.1:8000.</br>
 
 Credits:
 *We used https://www.flaticon.com/free-icon/file_1150643 for the search icon on homepage.
