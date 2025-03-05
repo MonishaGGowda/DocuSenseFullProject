@@ -1,0 +1,322 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+  padding: 20px;
+  height: calc(100vh - 140px); 
+}
+
+/* Left Section */
+.left-pane {
+  width: 30%;
+  padding: 20px;
+  background-color: #d0f0f0;  
+  border: 1px solid #2d8a8d;
+  margin-right: 20px;
+  max-height: 600px;
+  overflow-y: auto;  
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.right-pane {
+  width: 70%;
+  padding: 20px;
+  background-color: #fff3e0; 
+  border: 1px solid #ffb04e;
+  max-height: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+}
+
+.summary-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px; 
+  max-height: 300px; 
+  overflow-y: auto;
+}
+
+#annotationsContainer {
+  background-color: #fff8e1;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+button {
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px 0;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Summary and Highlight Buttons */
+.summaryButton, .highlightButton {
+  background-color: #28a745;  
+  margin-top: 10px;
+  height: max-content;
+}
+
+.flex {
+  display: inline-flex;
+  gap: 2em;
+}
+
+.summaryButton:hover, .highlightButton:hover {
+  background-color: #218838;  
+}
+
+#documentList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 300px; 
+  overflow-y: auto; 
+  border: 1px solid #ccc; 
+  background-color: #f9f9f9; 
+}
+
+#documentList li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s;
+}
+
+#documentList li:hover {
+  background-color: #e0f7fa;  /* Light cyan on hover */
+  cursor: pointer;
+}
+
+
+.annotationPopup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  z-index: 1000;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.annotationText {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  margin: 0;
+}
+
+.doc-name {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;    
+  text-align: center;     
+  padding: 20px;
+  background-color: #f8f8f8;
+  border-bottom: 2px solid #ddd; 
+}
+
+.doc-name h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: #333;
+}
+
+.doc-name nav {
+  margin-top: 10px;
+}
+
+.doc-name nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.doc-name nav ul li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.doc-name nav ul li a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.doc-name nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.highlightButton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.highlightButton:hover {
+  background-color: #0056b3;
+}
+
+#documentContainer {
+  padding: 20px;
+  background-color: #fff3e0;  
+  border: 1px solid #ffb04e;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+#documentContainer h2 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+#documentContentContainer {
+  padding: 20px;
+  background-color: #f9f9f9;  
+  border: 1px solid #ddd;     
+  max-height: 600px;          
+  overflow-y: auto;            
+}
+
+#documentTitle {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+#documentContainer {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+#documentListContainer {
+  padding: 10px;
+}
+
+#documentList li {
+  cursor: pointer;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  list-style-type: none;
+}
+
+#documentList li:hover {
+  background-color: #e0f7fa;
+}
+
+#highlightIcon {
+  font-size: 1.5rem;
+  color: #007bff;  
+  transition: color 0.3s ease;
+}
+
+#highlightIcon.active {
+  color: #efe811; 
+}
+
+#highlightIcon:hover {
+  color: #0056b3;     
+}
+
+.highlight {
+  background-color: yellow;  
+  font-weight: bold;
+  padding: 2px;
+  border-radius: 3px;
+}
+
+.query-container {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.query-container textarea {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.query-summary {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+}
+
+
+.doc-name nav ul li a {
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left-pane, .right-pane {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+

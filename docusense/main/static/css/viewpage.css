@@ -1,0 +1,95 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.table-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+#analysis-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+#analysis-table th, #analysis-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#analysis-table th {
+    background-color: #0072ff;
+    color: white;
+    font-weight: bold;
+}
+
+#analysis-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Delete Button Styling */
+.deleteButton {
+    background-color: #ff4d4d; /* Red color for delete */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.deleteButton:hover {
+    background-color: #e60000; /* Darker red on hover */
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .table-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    #analysis-table th, #analysis-table td {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .deleteButton {
+        font-size: 0.9rem;
+    }
+}

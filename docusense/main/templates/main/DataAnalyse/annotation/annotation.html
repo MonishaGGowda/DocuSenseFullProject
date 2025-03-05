@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="{% static 'css/annotation.css' %}">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <title>Data Analyse - Annotate Document</title>
+  <style>
+    .highlight {
+        background-color: yellow;
+        font-weight: bold;
+        padding: 2px;
+        border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <header-component data-logout-url="{% url 'main:logout' %}"></header-component>
+  <div class="doc-name">
+    <h1 id="analysisTitle">Data Analyse - Annotate Document</h1>
+    <nav>
+      <ul>
+        <li><a href="{% url 'main:view_page' %}">List Analysis</a></li>
+        <li><a onclick="openAllAnnotations()">Connections</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="container">
+    <div class="left-pane">
+      <h2>Documents</h2>
+      <textarea id="searchBox" placeholder="Enter text to search..."></textarea>
+      <button id="filterButton" title="Search filter text" onclick="filterDocuments()">Filter</button>
+      <button id="clearFilterButton" title="Clear filter text" onclick="clearFilter()">Clear Filter</button>
+      <div id="documentListContainer">
+        <ul id="documentList">
+            
+        </ul>
+    </div>
+    <div id="uploadForm">
+      {% csrf_token %}
+      <input type="file" id="fileUpload" accept=".txt" multiple />
+      <button onclick="uploadDocuments()" title="Click to upload">Upload Documents</button>
+    </div>
+      <div id="documentContentContainer">
+        <h2 id="documentTitle">
+            Document Content 
+            <i id="highlightIcon" title="Click to highlight" class="fas fa-highlighter" onclick="toggleHighlighter()" style="cursor: pointer; margin-left: 10px;"></i>
+        </h2>
+        <div id="documentContainer">
+        </div>
+    </div>
+    </div>    
+    <div class="query-container">
+      <h3>Enter your query to to get relevant summary:</h3>
+      <textarea id="queryText" rows="4" placeholder="Type your query here..."></textarea><br>
+  </div>
+    <div class="right-pane">
+      <div class="button-container">
+        <div class="summary-option">
+          <label>
+            <input type="radio" name="summaryType" value="file" checked>
+            File Summary
+          </label>
+          <label>
+            <input type="radio" name="summaryType" value="entire">
+            Entire Analysis Summary
+          </label>
+          <button id="summaryButton" class="summaryButton" onclick="toggleSummary()" title="Show the results">Show Summary</button>
+        </div>
+      </div>
+
+      <div class="summary-container" id="summaryContainer" style="display:none;">
+        <h2>Summary</h2>
+        <p>This section will display the summary of the document or analysis.</p>
+      </div>
+
+      <div id="annotationsContainer" class="annotations-pane">
+        <h2>Annotations</h2>
+        <div id="annotations"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="annotationPopup" class="annotationPopup popup" style="display: none;"> 
+    <h3 id="annotationHeading">Selected text: </h3> <!-- Display the highlighted text here -->
+    
+    <textarea id="annotationText" class="annotationText" rows="4" placeholder="Create your notes/annotation"></textarea><br>
+    
+    <button onclick="saveAnnotation()">Add Annotation</button>
+    <button type="button" onclick="closeAnnotationPopup()">Cancel</button>
+</div>
+
+  <footer>
+    <p>&copy; Non Copyrighted © 2024 Upload by DocuSense Technologies</p>
+  </footer>
+
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/annotation.js' %}"></script>
+  <script src="{% static 'js/header_component.js' %}" defer></script>
+</body>
+</html>

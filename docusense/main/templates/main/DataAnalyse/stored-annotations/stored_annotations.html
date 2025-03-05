@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stored_annotations.css' %}">
+</head>
+<body>
+
+    <header-component data-logout-url="{% url 'main:logout' %}"></header-component>
+
+<section class="connections-header">
+    <p>Explore the list of annotations from various documents</p>
+</section>
+
+<div class="filter-section">
+    <div class="filter-container">
+        <input type="text" id="filterInput" class="filterInput" placeholder="Search any heading or content...">
+        <select id="tagSelect" class="tagSelect">
+            <option value="" disabled selected>Select a tag</option>
+        </select>
+        <button id="resetButton" class="marginL10 resetButton" title="Reset to original">Reset</button>
+        <button id="return" class="marginL10 resetButton" title="Click to go back">Back</button>
+    </div>
+</div>
+<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+<div class="card-list">
+</div>
+
+<footer>
+    <p>&copy; Non Copyrighted © 2024 Upload by DocuSense Technologies</p>
+</footer>
+
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/stored_annotations.js' %}"></script>
+<script src="{% static 'js/header_component.js' %}" defer></script>
+
+</body>
+</html>
+
